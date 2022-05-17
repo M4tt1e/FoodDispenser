@@ -15,7 +15,7 @@ void stepper_move(StepperDirection_Type direction){
 	
 	for(char u=0; u<=51; u++){ //approximately 36 degrees (10% of a circle)
 		for(volatile char i=start[direction]; i!=end[direction]; i+=step[direction]){
-			PORTC = (1<<i);
+			PORTC = (1<<i); // the pin set to a specific order based on the input direction 
 			for(int d=0;d<6000;d++){} //delay as the motor requires at least 2ms delay between steps 
 		}
 	}

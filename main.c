@@ -1,8 +1,7 @@
 /*
- * steppermotor.c
- *
+ * 
  * Created: 27.4.2022 13:33:29
- * Author : Mateusz Edwardsson
+ * Author : Mateusz Edwardsson and Francesco Foresti
  */ 
 
 #include <avr/io.h>
@@ -16,9 +15,7 @@
 int main(void){
 	initialize();
 
-	while(1){
-		display();
-	}
+	while(1);
 	return 0;
 }
 

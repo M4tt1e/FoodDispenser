@@ -49,6 +49,7 @@ ISR(INT0_vect){
 		}
 		buzz(15);
 		count++;
+		display();
 	}
 }
 
@@ -65,15 +66,17 @@ ISR(PCINT0_vect){
 		flag_dir_pir++;
 		if(flag_dir_pir==COOLDOWN){
 			count++;
+			display();
 			PCMSK0 = (0<<PCINT0); //Deactivate itself
 			buzz(15);
-	
+			
 			// Set Timer 1 and interrupt
 			TCCR1B =(1<<CS11); // Start timer. Set clk/8 prescaler for timer1
 			TIMSK1 = (1<<TOIE1); // Enable timer 1 overflow interrupt
 		}
 	}
 }
+
 
 //External pin interrupt pcint16 on portD0 (mode button)
 ISR(PCINT2_vect){
